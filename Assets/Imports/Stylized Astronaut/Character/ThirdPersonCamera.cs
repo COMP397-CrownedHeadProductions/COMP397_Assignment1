@@ -12,21 +12,30 @@ public class ThirdPersonCamera : MonoBehaviour
     public float distance = 5.0f;
 
     private float currentX = 0.0f;
-    private float currentY = 45.0f;
+    private float currentY = 0.0f;
     private float sensitivityX = 20.0f;
     private float sensitivityY = 20.0f;
+
+    private float xRotation = 0.0f;
 
     private void Start()
     {
         camTransform = transform;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Update()
     {
         currentX += Input.GetAxis("Mouse X");
-        currentY += Input.GetAxis("Mouse Y");
+        currentY -= Input.GetAxis("Mouse Y");
 
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+
+        //xRotation -= currentY;
+        //xRotation = Mathf.Clamp(xRotation, -90.0f, 90.0f);
+
+        //transform.localRotation = Quaternion.Euler(xRotation, 0.0f, 0.0f);
+        //lookAt.Rotate(Vector3.up * currentX);
     }
 
     private void LateUpdate()
