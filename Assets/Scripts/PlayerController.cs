@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
 
+
     public float movementSpeed = 10.0f;
     public float gravity = -30.0f;
     public float jumpHeight = 3.0f;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float yJump = velocity.y;
         isGrounded = Physics.CheckSphere(groundCheck.position, groundRadius, groundMask);
         if (isGrounded && velocity.y < 0)
         {
@@ -44,12 +46,13 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         controller.Move(move * movementSpeed * Time.deltaTime);
+        velocity = move.normalized * movementSpeed;
+        velocity.y = yJump;
 
         if (Input.GetButton("Jump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
         }
-
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
