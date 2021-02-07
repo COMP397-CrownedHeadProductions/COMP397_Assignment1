@@ -8,6 +8,8 @@ public class CameraController : MonoBehaviour
     public Vector3 distance;
     public bool offSetValues;
     public float mouseSensitivity;
+    public float controllerSensitivity;
+    float xRotation = 0f;
     public Transform pivot;
 
     public bool invertYAxis;
@@ -20,7 +22,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        distance = player.position - transform.position;
+        //distance = player.position - transform.position;
         if (!offSetValues)
         {
             distance = player.position - transform.position;
@@ -33,15 +35,11 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region Mouse Camera Control
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float joyX = Input.GetAxis("RHorizontal") * mouseSensitivity;
-        if (mouseX > 0 || mouseX < 0 || joyX > 0 || joyX < 0)
-        {
-            player.Rotate(0, mouseX, 0);
-        }
-        
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        player.Rotate(0, mouseX, 0);
 
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
         //Invert Y-axis function
         if (invertYAxis)
         {
@@ -51,9 +49,31 @@ public class CameraController : MonoBehaviour
         {
             pivot.Rotate(-mouseY, 0, 0);
         }
+        #endregion
+
+        #region Controller Camera Controller
+        float controllerX = Input.GetAxis("RightJoyStickHorizontal") * controllerSensitivity * Time.deltaTime;
+        float controllerY = Input.GetAxis("RightJoyStickVertical") * controllerSensitivity * Time.deltaTime;
+
+        xRotation -= controllerY;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        player.Rotate(Vector3.up * controllerX);
+
+        if (invertYAxis)
+        {
+            pivot.Rotate(-controllerY, 0, 0);
+        }
+        else
+        {
+            pivot.Rotate(controllerY, 0, 0);
+        }
+        #endregion
+
 
         //Set limit to vertical camera rotation
-        if(pivot.rotation.eulerAngles.x > maxCameraAngle && pivot.rotation.eulerAngles.x < 180f)
+        if (pivot.rotation.eulerAngles.x > maxCameraAngle && pivot.rotation.eulerAngles.x < 180f)
         {
             pivot.rotation = Quaternion.Euler(maxCameraAngle, 0, 0);
         }
@@ -66,10 +86,9 @@ public class CameraController : MonoBehaviour
         float xAngle = pivot.eulerAngles.x;
         Quaternion rotation = Quaternion.Euler(xAngle, yAngle, 0);
         transform.position = player.position - (rotation * distance);
-            //transform.position = player.position - distance;
         if(transform.position.y < player.position.y)
         {
-            transform.position = new Vector3(transform.position.x, player.position.y - 0.5f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, player.position.y, transform.position.z);
         }
 
         transform.LookAt(player);
