@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;
-
     public Animator animator;
-    public Animator animController;
+    public float currentHealth;
+    public float maxHealth;
 
-
-    public float movementSpeed = 10.0f;
+    //Movement Variables
+    public float movementSpeed;
     public float sprintSpeed;
     public float controllerMoveSpeed = 10.0f;
     public float gravity = -30.0f;
@@ -33,7 +33,6 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        animController = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,6 +52,11 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * movementSpeed * Time.deltaTime);
         velocity = move.normalized * movementSpeed;
+
+        //if (z < 0)
+        //{
+        //    animator.Play("Player_WalkBack");
+        //}
         #endregion
 
         #region JoyStick control movement
@@ -65,17 +69,31 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         //Run function
+        if (Input.GetButtonDown("Sprint"))
+        {
+            animator.SetBool("isSprinting", Input.GetButtonDown("Sprint"));
+        }
         if(isGrounded && Input.GetButtonDown("Sprint") && z > 0)
         {
-            movementSpeed += sprintSpeed;
+            movementSpeed = sprintSpeed;
+            animator.SetBool("isSprinting", Input.GetButtonDown("Sprint"));
+
+        }
+        if (isGrounded && Input.GetButtonDown("Sprint") && z < 0)
+        {
+            movementSpeed = 3.0f;
             animator.SetBool("isSprinting", Input.GetButtonDown("Sprint"));
 
         }
         if (isGrounded && Input.GetButtonUp("Sprint") && z > 0)
         {
-            movementSpeed -= 3f;
+            movementSpeed = 3.0f;
             animator.SetBool("isSprinting", false);
-
+        }
+        if (isGrounded && Input.GetButtonUp("Sprint") && z < 0)
+        {
+            movementSpeed = 2.0f;
+            animator.SetBool("isSprinting", false);
         }
 
         //Jump function
