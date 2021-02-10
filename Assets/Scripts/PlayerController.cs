@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,9 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public float currentHealth;
     public float maxHealth;
+
+    //Helath Bar Functions
+    public event Action<float> OnHealthPercentChanged = delegate { };
 
     //Movement Variables
     public float movementSpeed;
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -109,5 +114,18 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Input.GetAxis("Vertical") + Input.GetAxis("Horizontal"));
         animator.SetFloat("SprintSpeed", Input.GetAxis("Vertical") + Input.GetAxis("Horizontal") + 1);
         //animController.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("LeftJoyStickVertical")) + Mathf.Abs(Input.GetAxis("LeftJoyStickHorizontal"))));
+
+        #region Temporary Health Bar Function
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            DamageHealth(-10);
+        }
+        #endregion
+    }
+    public void DamageHealth(int amt)
+    {
+        currentHealth += amt;
+        float currenthealthPercent = (float)currentHealth / (float)maxHealth;
+        OnHealthPercentChanged(currenthealthPercent);
     }
 }
