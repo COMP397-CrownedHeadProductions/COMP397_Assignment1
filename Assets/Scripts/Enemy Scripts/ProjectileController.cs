@@ -15,7 +15,7 @@ public class ProjectileController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerDamage = GameObject.Find("Dungeon Operative/Camera").GetComponent<PlayerController>();
+        playerDamage = GameObject.Find("Player").GetComponent<PlayerController>();
         //player = GameObject.FindWithTag("Player");
         //player2 = GameObject.FindWithTag("Player2");
     }
@@ -29,7 +29,7 @@ public class ProjectileController : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         damage = Random.Range(15, 25);
-        if(collision.gameObject.tag == "Metal")
+        if(collision.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }

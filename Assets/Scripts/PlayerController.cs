@@ -23,11 +23,6 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
-    //Player animation states
-    const string playerIdle = "Player_Idle";
-    const string playerRun = "Run_SwordShield";
-    const string playerWalk = "Walk_SwordShield";
-
     // Start is called before the first frame update
     void Start()
     {

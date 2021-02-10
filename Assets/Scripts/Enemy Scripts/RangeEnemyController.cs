@@ -7,12 +7,13 @@ public class RangeEnemyController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;
     public Transform player;
-    public Transform player2;
     public LayerMask whatIsGround, whatIsPlayer;
     public float rhealth = 100;
     public int damage;
     public GameObject healthDrop;
     public bool dropsHealth;
+
+    public Animator animator;
 
     //Patrol Variables
     public Vector3 walkPoint;
@@ -34,21 +35,34 @@ public class RangeEnemyController : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     private void Update()
     {
-        //player = GameObject.FindGameObjectWithTag("Player2").transform;
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-
         //Checks for sight and attack range from player
         inSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         inAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
-        if (!inSightRange && !inAttackRange) Patrol();
-        if (inSightRange && !inAttackRange) Chase();
-        if (inSightRange && inAttackRange) Attack();
+        if (!inSightRange && !inAttackRange)
+        {
+            Patrol();
+            animator.SetBool("inRange", false);
+        }
+        if (inSightRange && !inAttackRange)
+        {
+            Chase();
+            animator.SetBool("inRange", true);
+            animator.SetBool("attackRange", false);
+        }
+        if (inSightRange && inAttackRange)
+        {
+            Attack();
+            animator.SetBool("attackRange", true);
+        }
+
+        animator.SetFloat("Speed", navMeshAgent.speed);
     }
 
     //Moves to a set position after a certain distance
@@ -79,25 +93,20 @@ public class RangeEnemyController : MonoBehaviour
     //Chase Player Function - When player is in a certain range
     private void Chase()
     {
-        Debug.Log("Chasing Player");
         navMeshAgent.SetDestination(player.position);
-        if(player = null)
-        {
-            navMeshAgent.SetDestination(player2.position);
-        }
-
-        //navMeshAgent.SetDestination(player2.position);
+        navMeshAgent.speed = 4;
+        Debug.Log("Chasing Player");
     }
 
     //Attacks Player Function
     private void Attack()
     {
-        //Debug.Log("Attacking Player");
+        Debug.Log("Attacking Player");
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
         if (player = null)
         {
-            navMeshAgent.SetDestination(player2.position);
+            navMeshAgent.SetDestination(player.position);
         }
 
         if (!attackActive)
@@ -105,11 +114,12 @@ public class RangeEnemyController : MonoBehaviour
             //Instantiate Enemy projectile
             Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
-            //rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             attackActive = true;
             Invoke(nameof(ResetAttack), attackDelay);
         }
+        Debug.Log("Attacking Player");
     }
 
     private void ResetAttack()
@@ -126,19 +136,4 @@ public class RangeEnemyController : MonoBehaviour
         if (dropsHealth) Instantiate(healthDrop, transform.position, transform.rotation);
         
     }
-
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Player")
-    //    {
-    //        //collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
-    //        Invoke(nameof(DamagePlayer), attackDelay);
-    //    }
-    //}
-
-    //public void DamagePlayer(Collision collision)
-    //{
-    //    collision.transform.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
-    //    Destroy(gameObject);
-    //}
 }
