@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -114,6 +116,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             DamageHealth(-10);
+            if(currentHealth <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
         #endregion
     }
@@ -122,5 +128,10 @@ public class PlayerController : MonoBehaviour
         currentHealth += amt;
         float currenthealthPercent = (float)currentHealth / (float)maxHealth;
         OnHealthPercentChanged(currenthealthPercent);
+    }
+
+    void RestartScene()
+    {
+        SceneManager.LoadScene("TestScene");
     }
 }

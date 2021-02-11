@@ -41,6 +41,8 @@ public class RangeEnemyController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
         //Checks for sight and attack range from player
         inSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         inAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
@@ -63,6 +65,9 @@ public class RangeEnemyController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", navMeshAgent.speed);
+
+        
+
     }
 
     //Moves to a set position after a certain distance
@@ -113,7 +118,7 @@ public class RangeEnemyController : MonoBehaviour
         {
             //Instantiate Enemy projectile
             Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
+            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 8f, ForceMode.Impulse);
 
             attackActive = true;

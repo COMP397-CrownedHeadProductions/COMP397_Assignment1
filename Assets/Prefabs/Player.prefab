@@ -2126,7 +2126,7 @@ Animator:
   m_GameObject: {fileID: 4145445216973744867}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e4aa31f274820b94eb0d0b764e0f383b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 081111fd1834f42469e07a9a2ce295c6, type: 2}
+  m_Controller: {fileID: 9100000, guid: fe67d1494799ca144b80768edfe0dcba, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2166,7 +2166,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
+  animator: {fileID: 0}
+  currentHealth: 0
+  maxHealth: 0
   movementSpeed: 0
+  sprintSpeed: 0
+  controllerMoveSpeed: 10
   gravity: -30
   jumpHeight: 3
   groundCheck: {fileID: 0}

@@ -35,6 +35,7 @@ public class ProjectileController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
+            playerDamage.currentHealth -= 10;
             //collision.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
             Destroy(gameObject);
             Debug.Log("Enemy dealt " + damage + " damage to Player 1");
