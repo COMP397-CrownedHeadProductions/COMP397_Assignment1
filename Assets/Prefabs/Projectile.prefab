@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -1593612745885058057}
   m_Layer: 0
   m_Name: Projectile
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: -8140123655321195310}
-  playerBody: {fileID: 0}
+  playerBody: {fileID: 4147766913557678289, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
   damageRange1: 10
   damageRange2: 13
-  playerDamage: {fileID: 0}
+  playerDamage: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}

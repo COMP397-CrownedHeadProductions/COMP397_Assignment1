@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 1015536622924851582}
   m_Layer: 0
   m_Name: RangedMonster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   navMeshAgent: {fileID: 170113386093032783}
-  player: {fileID: 0}
+  player: {fileID: 4147766913557678289, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -165,13 +165,13 @@ MonoBehaviour:
   dropsHealth: 0
   animator: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 0
-  projectileSpeed: 0
-  attackDelay: 0
-  enemyProjectile: {fileID: 0}
-  shootPoint: {fileID: 0}
-  sightRange: 0
-  attackRange: 0
+  walkPointRange: 5
+  projectileSpeed: 5
+  attackDelay: 1
+  enemyProjectile: {fileID: 3496651984529838256, guid: e422bd3c910e76d4e9b9751e23c1d611, type: 3}
+  shootPoint: {fileID: 1781197524999056767}
+  sightRange: 18
+  attackRange: 12
   inSightRange: 0
   inAttackRange: 0
 --- !u!1 &4097237605026548500
@@ -568,7 +568,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7960240095169754894}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.473, z: 1.294}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4092626982368844776}

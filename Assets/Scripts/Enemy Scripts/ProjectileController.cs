@@ -46,7 +46,7 @@ public class ProjectileController : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         damage = Random.Range(damageRange1, damageRange2);
-        if(collision.gameObject.tag == "Wall")
+        if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile")
         {
             Destroy(gameObject);
         }
