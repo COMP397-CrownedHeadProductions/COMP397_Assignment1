@@ -5,6 +5,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/*
+ * Source File: PlayerController.cs
+ * Editors: Timothy Garcia
+ * Student Number: 300898955
+ * Date Modified: 02-14-2021
+ * Program: 3109 - Game-Programming(Optional Co-op)
+ * 
+ * --------------------Revision History--------------------
+ *                   Pre-Alpha - 2021.02.14
+ * - Basic player avatar movement and animations completed
+ * - Basic enemy AI movement and animation completed
+ * - Damage Player functionality implemented (Work in Progress)
+ */
+
 public class PlayerController : MonoBehaviour
 {
     public CharacterController controller;

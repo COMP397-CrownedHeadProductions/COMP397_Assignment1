@@ -2,6 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Source File: ProjectileController.cs
+ * Editors: Timothy Garcia
+ * Student Number: 300898955
+ * Date Modified: 02-14-2021
+ * Program: 3109 - Game-Programming(Optional Co-op)
+ * 
+ * --------------------Revision History--------------------
+ *                   Pre-Alpha - 2021.02.14
+ * - Projectile for ranged enemy implemented(WIP)
+ * - Damage to player functional
+ * - Game object destroyed when it collides with player or wall
+ */
+
 public class ProjectileController : MonoBehaviour
 {
     public Rigidbody rb;

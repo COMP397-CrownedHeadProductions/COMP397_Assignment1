@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/*
+ * Source File: RangeEnemyController.cs
+ * Editors: Timothy Garcia
+ * Student Number: 300898955
+ * Date Modified: 02-14-2021
+ * Program: 3109 - Game-Programming(Optional Co-op)
+ * 
+ * --------------------Revision History--------------------
+ *                   Pre-Alpha - 2021.02.14
+ * - Basic enemy movement and animation implemented
+ * - Enemy AI functions implemented (Patrol, Chase and Attack player functions)
+ * - Enemy distance modified for ranged enemy
+ * - Health drop variables added
+ */
 public class RangeEnemyController : MonoBehaviour
 {
     public NavMeshAgent navMeshAgent;

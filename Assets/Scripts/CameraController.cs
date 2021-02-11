@@ -2,6 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Source File: CameraController.cs
+ * Editors: Timothy Garcia
+ * Student Number: 300898955
+ * Date Modified: 02-14-2021
+ * Program: 3109 - Game-Programming(Optional Co-op)
+ * 
+ * --------------------Revision History--------------------
+ *                   Pre-Alpha - 2021.02.14
+ * - Basic camera movement for third-person character
+ */
+
 public class CameraController : MonoBehaviour
 {
     public Transform player;
