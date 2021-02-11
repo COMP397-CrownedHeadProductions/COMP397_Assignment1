@@ -116,10 +116,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             DamageHealth(-10);
-            if(currentHealth <= 0)
-            {
-                Destroy(gameObject);
-            }
+        }
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
         #endregion
     }

@@ -6,7 +6,10 @@ public class ProjectileController : MonoBehaviour
 {
     public Rigidbody rb;
     private GameObject player;
-    public int damage;
+    public Transform playerBody;
+    int damage;
+    public int damageRange1;
+    public int damageRange2;
 
     public PlayerController playerDamage;
 
@@ -14,29 +17,28 @@ public class ProjectileController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerBody = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         playerDamage = GameObject.Find("Player").GetComponent<PlayerController>();
-        //player = GameObject.FindWithTag("Player");
-        //player2 = GameObject.FindWithTag("Player2");
+        transform.LookAt(playerBody);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void OnCollisionEnter(Collision collision)
     {
-        damage = Random.Range(15, 25);
+        damage = Random.Range(damageRange1, damageRange2);
         if(collision.gameObject.tag == "Wall")
         {
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Player")
         {
-            playerDamage.currentHealth -= 10;
-            //collision.gameObject.GetComponentInChildren<PlayerController>().health -= damage;
+            collision.gameObject.GetComponent<PlayerController>().currentHealth -= damage;
             Destroy(gameObject);
             Debug.Log("Enemy dealt " + damage + " damage to Player 1");
         }

@@ -8,8 +8,7 @@ public class RangeEnemyController : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float rhealth = 100;
-    public int damage;
+    public float rhealth;
     public GameObject healthDrop;
     public bool dropsHealth;
 
@@ -25,6 +24,7 @@ public class RangeEnemyController : MonoBehaviour
     public float attackDelay;
     bool attackActive;
     public GameObject enemyProjectile;
+    public Transform shootPoint;
 
     //State Variables
     public float sightRange, attackRange;
@@ -65,15 +65,11 @@ public class RangeEnemyController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", navMeshAgent.speed);
-
-        
-
     }
 
     //Moves to a set position after a certain distance
     private void Patrol()
     {
-        Debug.Log("Patrolling....");
         if (!walkPointSet) SearchWalkPoint();
         if (walkPointSet)
             navMeshAgent.SetDestination(walkPoint);
@@ -83,6 +79,7 @@ public class RangeEnemyController : MonoBehaviour
         //Walkpoint range limit
         if (walkPointDistance.magnitude < 1f)
             walkPointSet = false;
+        //Debug.Log("Patrolling....");
     }
 
     //Sets the enemy set point position.
@@ -100,13 +97,12 @@ public class RangeEnemyController : MonoBehaviour
     {
         navMeshAgent.SetDestination(player.position);
         navMeshAgent.speed = 4;
-        Debug.Log("Chasing Player");
+        //Debug.Log("Chasing Player");
     }
 
     //Attacks Player Function
     private void Attack()
     {
-        Debug.Log("Attacking Player");
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
         if (player = null)
@@ -117,14 +113,14 @@ public class RangeEnemyController : MonoBehaviour
         if (!attackActive)
         {
             //Instantiate Enemy projectile
-            Rigidbody rb = Instantiate(enemyProjectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);
+            Rigidbody rb = Instantiate(enemyProjectile, shootPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
+            //rb.AddForce(transform.up, ForceMode.Impulse);
 
             attackActive = true;
             Invoke(nameof(ResetAttack), attackDelay);
         }
-        Debug.Log("Attacking Player");
+        //Debug.Log("Attacking Player");
     }
 
     private void ResetAttack()
