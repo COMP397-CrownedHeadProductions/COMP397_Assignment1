@@ -11,7 +11,15 @@ public class HealthBarController : MonoBehaviour
     private float updateSpd = .5f;
     private void Awake()
     {
-        GetComponentInParent<PlayerController>().OnHealthPercentChanged += HealthChangeHdlr;
+        if (GetComponentInParent<PlayerController>() != null)
+        {
+            GetComponentInParent<PlayerController>().OnHealthPercentChanged += HealthChangeHdlr;
+        }
+        else
+        {
+            GetComponentInParent<RangeEnemyController>().OnREHelathPercentChanged += HealthChangeHdlr;
+        }
+        
     }
     void LateUpdate()
     {

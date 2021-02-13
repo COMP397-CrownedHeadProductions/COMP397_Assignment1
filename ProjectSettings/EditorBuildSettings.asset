@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TestScene_MenuScene.unity
+    guid: 2966ece21a300ae4ea426f4242a76d1f
+  - enabled: 1
+    path: Assets/Scenes/TestScene_HealthBar.unity
+    guid: b4e37f732fdc74d448cd368f158b9c25
+  - enabled: 1
+    path: Assets/Scenes/TestScene_EnemyAI.unity
+    guid: 550dbeab7b335b343ac498fd0752467a
+  - enabled: 1
+    path: Assets/Scenes/TestScene_EndScene.unity
+    guid: dcae1fae2ebbf9f4d8f26d153d6f0740
   m_configObjects: {}

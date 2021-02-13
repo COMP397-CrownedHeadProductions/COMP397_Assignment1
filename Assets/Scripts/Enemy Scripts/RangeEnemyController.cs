@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -27,6 +28,8 @@ public class RangeEnemyController : MonoBehaviour
     public bool dropsHealth;
 
     public Animator animator;
+
+    public event Action<float> OnREHelathPercentChanged = delegate { };
 
     //Patrol Variables
     public Vector3 walkPoint;
@@ -99,8 +102,8 @@ public class RangeEnemyController : MonoBehaviour
     //Sets the enemy set point position.
     private void SearchWalkPoint()
     {
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
+        float randomZ = UnityEngine.Random.Range(-walkPointRange, walkPointRange);
         walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
