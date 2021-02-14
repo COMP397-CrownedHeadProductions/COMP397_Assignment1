@@ -15,7 +15,7 @@ public class MenuController : MonoBehaviour
     //Menu and end game scene functions.
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("TestScene_HealthBar");
     }
     public void ExitGame()
     {
@@ -25,7 +25,7 @@ public class MenuController : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
-    public void ToMenu()
+    public void ToSettings()
     {
         SceneManager.LoadScene("TestScene_SettingsScene");
     }
