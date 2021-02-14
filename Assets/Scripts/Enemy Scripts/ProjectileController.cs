@@ -49,6 +49,12 @@ public class ProjectileController : MonoBehaviour
         if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile")
         {
             Destroy(gameObject);
+            Debug.Log("Projectile collided with Projectile");
+        }
+        if (collision.gameObject.tag == "PlayerSword")
+        {
+            Destroy(gameObject);
+            Debug.Log("Projectile collided with Sword");
         }
         if (collision.gameObject.tag == "Player")
         {

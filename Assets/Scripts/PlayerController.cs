@@ -136,6 +136,24 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
         #endregion
+
+        //Attack function
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            animator.SetBool("isAttacking", false);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            animator.SetBool("isParrying", true);
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            animator.SetBool("isParrying", false);
+        }
     }
     public void DamageHealth(int amt)
     {
