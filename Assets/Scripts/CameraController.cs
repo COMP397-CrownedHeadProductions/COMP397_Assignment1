@@ -47,22 +47,22 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region Mouse Camera Control
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        player.Rotate(0, mouseX, 0);
+        #region Mouse Camera Control        
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            player.Rotate(0, mouseX, 0);
 
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-        //Invert Y-axis function
-        if (invertYAxis)
-        {
-            pivot.Rotate(mouseY, 0, 0);
-        }
-        else
-        {
-            pivot.Rotate(-mouseY, 0, 0);
-        }
-        #endregion
-
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+            //Invert Y-axis function
+            if (invertYAxis)
+            {
+                pivot.Rotate(mouseY, 0, 0);
+            }
+            else
+            {
+                pivot.Rotate(-mouseY, 0, 0);
+            }
+            #endregion
+        
         #region Controller Camera Controller
         float controllerX = Input.GetAxis("RightJoyStickHorizontal") * controllerSensitivity * Time.deltaTime;
         float controllerY = Input.GetAxis("RightJoyStickVertical") * controllerSensitivity * Time.deltaTime;
