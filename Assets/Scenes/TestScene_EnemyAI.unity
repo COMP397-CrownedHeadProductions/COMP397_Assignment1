@@ -168,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4145445216973744867, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4147766913557678289, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_RootOrder
@@ -226,10 +226,42 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.13068025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9954541
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: m_Center.x
+      value: 0.0012214982
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: m_Center.y
+      value: -0.6290281
+      objectReference: {fileID: 0}
+    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: m_Center.z
+      value: 0.0000005743702
+      objectReference: {fileID: 0}
     - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: animController
       value: 
       objectReference: {fileID: 203596710}
+    - target: {fileID: 7376637369949521721, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376637369949521721, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: damageRange1
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7376637369949521721, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+      propertyPath: damageRange2
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
 --- !u!4 &88376319 stripped
@@ -862,6 +894,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1015536622924851582, guid: 23eebad8e7b3cc6409957bbdc068d8c6, type: 3}
+      propertyPath: attackDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1315678273176296761, guid: 23eebad8e7b3cc6409957bbdc068d8c6, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4092626982368844776, guid: 23eebad8e7b3cc6409957bbdc068d8c6, type: 3}
       propertyPath: m_RootOrder
       value: 4

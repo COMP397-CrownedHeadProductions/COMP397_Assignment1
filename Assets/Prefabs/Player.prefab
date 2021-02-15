@@ -1920,6 +1920,8 @@ GameObject:
   - component: {fileID: 4177002153441891935}
   - component: {fileID: 4167047540149564669}
   - component: {fileID: 6240317582678082624}
+  - component: {fileID: 3910997274428800167}
+  - component: {fileID: 7376637369949521721}
   m_Layer: 0
   m_Name: PolyartSword
   m_TagString: Untagged
@@ -2003,6 +2005,35 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.24923256, y: 1.1114901, z: 0.06556256}
   m_Center: {x: 0.002575834, y: -0.68704623, z: 0.000000584695}
+--- !u!54 &3910997274428800167
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145371619395195847}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7376637369949521721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4145371619395195847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fffff07aa7783d34b9bb14a283cf20c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
 --- !u!1 &4145372190015662835
 GameObject:
   m_ObjectHideFlags: 0

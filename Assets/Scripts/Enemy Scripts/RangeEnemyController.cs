@@ -23,7 +23,8 @@ public class RangeEnemyController : MonoBehaviour
     public NavMeshAgent navMeshAgent;
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
-    public float rhealth;
+    public float rHealth;
+    public float maxHealth;
     public GameObject healthDrop;
     public bool dropsHealth;
 
@@ -53,6 +54,7 @@ public class RangeEnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        rHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -82,6 +84,8 @@ public class RangeEnemyController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", navMeshAgent.speed);
+
+        EnemyDead();
     }
 
     //Moves to a set position after a certain distance
@@ -145,9 +149,13 @@ public class RangeEnemyController : MonoBehaviour
         attackActive = false;
     }
     
-    public void Enemydead()
+    public void EnemyDead()
     {
-        if (rhealth <= 0) HealthDrop();
+        if (rHealth <= 0) 
+        {
+            HealthDrop();
+            Destroy(gameObject);
+        }
     }
     void HealthDrop()
     {

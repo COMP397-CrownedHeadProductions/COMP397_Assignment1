@@ -60,7 +60,7 @@ public class ProjectileController : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerController>().currentHealth -= damage;
             Destroy(gameObject);
-            Debug.Log("Enemy dealt " + damage + " damage to Player 1");
+            Debug.Log("Enemy dealt " + damage + " damage to Player");
         }
     }
 }
