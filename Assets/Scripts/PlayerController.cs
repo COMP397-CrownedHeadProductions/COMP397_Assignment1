@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
  * Source File: PlayerController.cs
  * Editors: Timothy Garcia
  * Student Number: 300898955
- * Date Modified: 02-14-2021
+ * Date Modified: 02-16-2021
  * Program: 3109 - Game-Programming(Optional Co-op)
  * 
  * --------------------Revision History--------------------
@@ -164,6 +164,6 @@ public class PlayerController : MonoBehaviour
 
     void RestartScene()
     {
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene("TestScene_EnemyAI");
     }
 }

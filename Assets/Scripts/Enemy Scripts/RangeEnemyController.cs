@@ -8,7 +8,7 @@ using UnityEngine.AI;
  * Source File: RangeEnemyController.cs
  * Editors: Timothy Garcia
  * Student Number: 300898955
- * Date Modified: 02-14-2021
+ * Date Modified: 02-16-2021
  * Program: 3109 - Game-Programming(Optional Co-op)
  * 
  * --------------------Revision History--------------------
@@ -29,6 +29,8 @@ public class RangeEnemyController : MonoBehaviour
     public bool dropsHealth;
 
     public Animator animator;
+    public GameObject heartPickup;
+    public Transform heartSpawn;
 
     public event Action<float> OnREHelathPercentChanged = delegate { };
 
@@ -159,7 +161,10 @@ public class RangeEnemyController : MonoBehaviour
     }
     void HealthDrop()
     {
-        if (dropsHealth) Instantiate(healthDrop, transform.position, transform.rotation);
-        
+        if (dropsHealth)
+        {
+            heartPickup = Instantiate(healthDrop, heartSpawn.transform.position, transform.rotation);
+            heartPickup.transform.Rotate(-90.0f, 0.0f, 0.0f);
+        }
     }
 }

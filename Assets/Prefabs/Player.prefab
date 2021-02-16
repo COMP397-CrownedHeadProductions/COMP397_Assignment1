@@ -2003,8 +2003,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.24923256, y: 1.1114901, z: 0.06556256}
-  m_Center: {x: 0.002575834, y: -0.68704623, z: 0.000000584695}
+  m_Size: {x: 0.13068025, y: 1.1825875, z: 0.06556256}
+  m_Center: {x: 0.0012214968, y: -0.7225949, z: 0.0000005911012}
 --- !u!54 &3910997274428800167
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2033,7 +2033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffff07aa7783d34b9bb14a283cf20c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damageRange1: 0
+  damageRange2: 0
 --- !u!1 &4145372190015662835
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,13 +2193,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.8
+  m_Height: 1.75
   m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: 0, y: 0.95, z: 0}
 --- !u!114 &7181169345998925964
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -144,15 +144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2923462080111596032, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064050704871924759, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064050704871924759, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_SkinnedMotionVectors
-      value: 1
+      value: 247
       objectReference: {fileID: 0}
     - target: {fileID: 4145371619395195847, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_Name
@@ -180,7 +172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4147766913557678289, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.26
+      value: 0.17
       objectReference: {fileID: 0}
     - target: {fileID: 4147766913557678289, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -225,26 +217,6 @@ PrefabInstance:
     - target: {fileID: 5681159745896192205, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Size.x
-      value: 0.13068025
-      objectReference: {fileID: 0}
-    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9954541
-      objectReference: {fileID: 0}
-    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Center.x
-      value: 0.0012214982
-      objectReference: {fileID: 0}
-    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Center.y
-      value: -0.6290281
-      objectReference: {fileID: 0}
-    - target: {fileID: 6240317582678082624, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Center.z
-      value: 0.0000005743702
       objectReference: {fileID: 0}
     - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: animController
@@ -895,6 +867,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1015536622924851582, guid: 23eebad8e7b3cc6409957bbdc068d8c6, type: 3}
+      propertyPath: rHealth
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1015536622924851582, guid: 23eebad8e7b3cc6409957bbdc068d8c6, type: 3}
       propertyPath: attackDelay
       value: 10
       objectReference: {fileID: 0}
@@ -1358,6 +1334,10 @@ PrefabInstance:
     - target: {fileID: 3484817685892833269, guid: 91ddd2be6a0225345a2d67d97e304ba6, type: 3}
       propertyPath: m_Name
       value: MiniMapCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484817685892833270, guid: 91ddd2be6a0225345a2d67d97e304ba6, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3484817686404529679, guid: 91ddd2be6a0225345a2d67d97e304ba6, type: 3}
       propertyPath: m_AnchoredPosition.x
