@@ -10,7 +10,10 @@ public class MenuController : MonoBehaviour
     /// THIS SCRIPT WILL BE HANDLING ALL FUNCTIONS USED BY THE MENU, END GAME SCENE, 
     /// OPTION AND PAUSE MENU.
     /// </summary>
-    
+    void Update()
+    {
+        ExitGame();
+    }
 
     //Menu and end game scene functions.
     public void PlayGame()

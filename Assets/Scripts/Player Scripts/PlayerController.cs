@@ -43,11 +43,17 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
+    //Audio variables
+    public AudioClip swordSwing;
+    public AudioClip parrySound;
+    AudioSource playerAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        playerAudioSource = GetComponent<AudioSource>();
         currentHealth = maxHealth;
     }
 
@@ -141,6 +147,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             animator.SetBool("isAttacking", true);
+            playerAudioSource.clip = swordSwing;
+            playerAudioSource.Play();
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
@@ -149,6 +157,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             animator.SetBool("isParrying", true);
+            playerAudioSource.clip = parrySound;
+            playerAudioSource.Play();
         }
         if (Input.GetKeyUp(KeyCode.Mouse1))
         {
