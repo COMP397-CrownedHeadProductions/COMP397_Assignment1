@@ -21,13 +21,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Player Control Properties")]
     public CharacterController controller;
     public Animator animator;
-    public float currentHealth;
-    public float maxHealth;
-
-    //Helath Bar Functions
-    public event Action<float> OnHealthPercentChanged = delegate { };
 
     //Movement Variables
     public float movementSpeed;
@@ -43,6 +39,13 @@ public class PlayerController : MonoBehaviour
     public Vector3 velocity;
     public bool isGrounded;
 
+    [Header("Player Health Properties")]
+    public float currentHealth;
+    public float maxHealth;
+    //Helath Bar Functions
+    public event Action<float> OnHealthPercentChanged = delegate { };
+
+    [Header("Player Audio Properties")]
     //Audio variables
     public AudioClip swordSwing;
     public AudioClip parrySound;
