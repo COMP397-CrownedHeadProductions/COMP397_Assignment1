@@ -664,8 +664,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4144489240834064977}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: 0, z: -0.05060407}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: -0.050603867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4147825588862176103}
@@ -2215,11 +2215,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   animator: {fileID: 4095364978243840871}
+  playerModel: {fileID: 0}
   movementSpeed: 3
   sprintSpeed: 10
   controllerMoveSpeed: 1
   gravity: -30
   jumpHeight: 3.5
+  pivot: {fileID: 0}
+  rotationSpeed: 0
   groundCheck: {fileID: 1888969371754556076}
   groundRadius: 0.5
   groundMask:

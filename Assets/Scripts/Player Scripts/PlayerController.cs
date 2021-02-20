@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     [Header("Player Control Properties")]
     public CharacterController controller;
     public Animator animator;
+    public GameObject playerModel;
 
     //Movement Variables
     public float movementSpeed;
@@ -31,6 +32,8 @@ public class PlayerController : MonoBehaviour
     public float controllerMoveSpeed = 10.0f;
     public float gravity = -30.0f;
     public float jumpHeight = 3.0f;
+    public Transform pivot;
+    public float rotationSpeed;
 
     public Transform groundCheck;
     public float groundRadius = 0.5f;
@@ -74,7 +77,7 @@ public class PlayerController : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        Vector3 move = (transform.right * x) + (transform.forward * z);
         controller.Move(move * movementSpeed * Time.deltaTime);
         velocity = move.normalized * movementSpeed;
 
@@ -123,17 +126,25 @@ public class PlayerController : MonoBehaviour
 
         //Jump function
         velocity.y = yJump;
-        if (Input.GetButton("Jump") && isGrounded)
+        if (Input.GetButton("Jump") && isGrounded || Input.GetButton("JoystickJump") && isGrounded)
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2.0f * gravity);
         }
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        //Move player direction based on camera direction
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            transform.rotation = Quaternion.Euler(0f, pivot.rotation.eulerAngles.y, 0f);
+        }
+
+        //Animation parameter functions
         animator.SetBool("isGrounded", controller.isGrounded);
-        animator.SetFloat("Speed", Input.GetAxis("Vertical") + Input.GetAxis("Horizontal"));
-        animator.SetFloat("SprintSpeed", Input.GetAxis("Vertical") + Input.GetAxis("Horizontal") + 1);
-        //animController.SetFloat("Speed", (Mathf.Abs(Input.GetAxis("LeftJoyStickVertical")) + Mathf.Abs(Input.GetAxis("LeftJoyStickHorizontal"))));
+        animator.SetFloat("Speed", Input.GetAxis("Vertical") + Input.GetAxis("Horizontal") - (Input.GetAxis("LeftJoyStickVertical") + Input.GetAxis("LeftJoyStickHorizontal")));
+        animator.SetFloat("SprintSpeed", Input.GetAxis("Vertical") + Input.GetAxis("Horizontal") + Input.GetAxis("LeftJoyStickVertical") + Input.GetAxis("LeftJoyStickHorizontal") + 1);
+
+        
 
         #region Temporary Health Bar Function
         if (Input.GetKeyDown(KeyCode.P))
@@ -147,23 +158,23 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         //Attack function
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && isGrounded || Input.GetKeyDown(KeyCode.Joystick1Button2) && isGrounded)
         {
             animator.SetBool("isAttacking", true);
             playerAudioSource.clip = swordSwing;
             playerAudioSource.Play();
         }
-        if (Input.GetKeyUp(KeyCode.Mouse0))
+        if (Input.GetKeyUp(KeyCode.Mouse0) && isGrounded || Input.GetKeyUp(KeyCode.Joystick1Button2) && isGrounded)
         {
             animator.SetBool("isAttacking", false);
         }
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isGrounded)
         {
             animator.SetBool("isParrying", true);
             playerAudioSource.clip = parrySound;
             playerAudioSource.Play();
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse1) && isGrounded)
         {
             animator.SetBool("isParrying", false);
         }
