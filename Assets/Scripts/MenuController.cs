@@ -30,7 +30,7 @@ public class MenuController : MonoBehaviour
     }
     public void ToSettings()
     {
-        SceneManager.LoadScene("TestScene_SettingsScene");
+        SceneManager.LoadScene(1);
     }
     //Option function(s).
     public AudioMixer audioMixer;
