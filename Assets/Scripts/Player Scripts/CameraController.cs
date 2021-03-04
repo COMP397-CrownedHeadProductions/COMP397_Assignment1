@@ -41,28 +41,30 @@ public class CameraController : MonoBehaviour
         }
         
         pivot.transform.position = player.transform.position;
-        pivot.transform.parent = player.transform;
+        //pivot.transform.parent = player.transform;
+        pivot.transform.parent = null;
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        #region Mouse Camera Control
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        player.Rotate(0, mouseX, 0);
+        #region Mouse Camera Control    
+        pivot.transform.position = player.transform.position;
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
+            pivot.Rotate(0, mouseX, 0);
 
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
-        //Invert Y-axis function
-        if (invertYAxis)
-        {
-            pivot.Rotate(mouseY, 0, 0);
-        }
-        else
-        {
-            pivot.Rotate(-mouseY, 0, 0);
-        }
-        #endregion
-
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+            //Invert Y-axis function
+            if (invertYAxis)
+            {
+                pivot.Rotate(mouseY, 0, 0);
+            }
+            else
+            {
+                pivot.Rotate(-mouseY, 0, 0);
+            }
+            #endregion
+        
         #region Controller Camera Controller
         float controllerX = Input.GetAxis("RightJoyStickHorizontal") * controllerSensitivity * Time.deltaTime;
         float controllerY = Input.GetAxis("RightJoyStickVertical") * controllerSensitivity * Time.deltaTime;
@@ -94,7 +96,7 @@ public class CameraController : MonoBehaviour
             pivot.rotation = Quaternion.Euler(360f + minCameraAngle, 0, 0);
         }
 
-        float yAngle = player.eulerAngles.y;
+        float yAngle = pivot.eulerAngles.y;
         float xAngle = pivot.eulerAngles.x;
         Quaternion rotation = Quaternion.Euler(xAngle, yAngle, 0);
         transform.position = player.position - (rotation * distance);

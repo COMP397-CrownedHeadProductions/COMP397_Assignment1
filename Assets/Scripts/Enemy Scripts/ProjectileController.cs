@@ -6,7 +6,7 @@ using UnityEngine;
  * Source File: ProjectileController.cs
  * Editors: Timothy Garcia
  * Student Number: 300898955
- * Date Modified: 02-14-2021
+ * Date Modified: 02-16-2021
  * Program: 3109 - Game-Programming(Optional Co-op)
  * 
  * --------------------Revision History--------------------
@@ -49,12 +49,18 @@ public class ProjectileController : MonoBehaviour
         if(collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Projectile")
         {
             Destroy(gameObject);
+            Debug.Log("Projectile collided with Projectile");
+        }
+        if (collision.gameObject.tag == "PlayerSword")
+        {
+            Destroy(gameObject);
+            Debug.Log("Projectile collided with Sword");
         }
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().currentHealth -= damage;
             Destroy(gameObject);
-            Debug.Log("Enemy dealt " + damage + " damage to Player 1");
+            Debug.Log("Enemy dealt " + damage + " damage to Player");
         }
     }
 }

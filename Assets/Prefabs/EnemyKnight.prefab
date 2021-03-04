@@ -999,14 +999,14 @@ MonoBehaviour:
     m_Bits: 64
   whatIsPlayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   health: 100
   animator: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
-  walkPointRange: 5
-  attackDelay: 0.5
-  sightRange: 20
-  attackRange: 12
+  walkPointRange: 3
+  attackDelay: 5
+  sightRange: 10
+  attackRange: 1.5
   inSightRange: 0
   inAttackRange: 0
 --- !u!1 &7618220928635241564
