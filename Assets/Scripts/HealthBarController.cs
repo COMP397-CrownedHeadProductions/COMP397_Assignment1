@@ -15,16 +15,15 @@ public class HealthBarController : MonoBehaviour
         {
             GetComponentInParent<PlayerController>().OnHealthPercentChanged += HealthChangeHdlr;
         }
-        else
+        else if (GetComponentInParent<RangeEnemyController>() != null)
         {
             GetComponentInParent<RangeEnemyController>().OnREHelathPercentChanged += HealthChangeHdlr;
-        }
-        
+        }        
     }
     void LateUpdate()
     {
-        transform.LookAt(Camera.main.transform);
-        transform.Rotate(0, 180, 0);
+        //transform.LookAt(Camera.main.transform);
+        //transform.Rotate(0, 180, 0);
     }
     private void HealthChangeHdlr(float percent)
     {

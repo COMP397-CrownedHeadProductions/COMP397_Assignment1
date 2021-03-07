@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController controller;
     public Animator animator;
     public GameObject playerModel;
+    public PauseController pause;
 
     //Movement Variables
     public float movementSpeed;
@@ -177,6 +178,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Mouse1) && isGrounded)
         {
             animator.SetBool("isParrying", false);
+        }
+
+        if (pause.isPaused)
+        {
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                SavingSys.SavePlayer(this);
+            }
         }
     }
     public void DamageHealth(int amt)
