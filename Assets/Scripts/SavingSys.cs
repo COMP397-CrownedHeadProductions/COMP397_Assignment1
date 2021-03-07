@@ -20,7 +20,7 @@ public static class SavingSys
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
             PlayerDat dat = formatter.Deserialize(stream) as PlayerDat;
-            stream.Close;
+            stream.Close();
             return dat;
         }
         else
