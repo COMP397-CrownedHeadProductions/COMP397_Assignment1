@@ -2139,7 +2139,7 @@ GameObject:
   - component: {fileID: 1204705823903192079}
   - component: {fileID: 7181169345998925964}
   - component: {fileID: 3894742645382007045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2194,7 +2194,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.75
+  m_Height: 1.6
   m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -2216,9 +2216,10 @@ MonoBehaviour:
   controller: {fileID: 0}
   animator: {fileID: 4095364978243840871}
   playerModel: {fileID: 0}
+  pause: {fileID: 0}
   movementSpeed: 3
-  sprintSpeed: 10
-  controllerMoveSpeed: 1
+  sprintSpeed: 7
+  controllerMoveSpeed: 100
   gravity: -30
   jumpHeight: 3.5
   pivot: {fileID: 0}
@@ -2227,9 +2228,9 @@ MonoBehaviour:
   groundRadius: 0.5
   groundMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 256
   velocity: {x: 0, y: 0, z: 0}
-  isGrounded: 0
+  isGrounded: 1
   currentHealth: 100
   maxHealth: 100
   swordSwing: {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}
@@ -2574,10 +2575,10 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 119
+    m_Bits: 567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 36b7e7103cf187043a7cd5c0671621a3, type: 2}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
