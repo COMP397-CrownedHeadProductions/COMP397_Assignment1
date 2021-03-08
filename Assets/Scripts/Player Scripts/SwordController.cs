@@ -26,7 +26,12 @@ public class SwordController : MonoBehaviour
         if (collision.gameObject.tag == "RangeEnemy")
         {
             collision.gameObject.GetComponent<RangeEnemyController>().rHealth -= damage;
-            Debug.Log("Player dealt " + damage + " to enemy.");
+            Debug.Log("Player dealt " + damage + " to ranged enemy.");
+        }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<ChaseEnemyController>().health -= damage;
+            Debug.Log("Player dealt " + damage + " to knight enemy.");
         }
     }
 }

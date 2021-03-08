@@ -15,7 +15,10 @@ EditorBuildSettings:
     path: Assets/Scenes/TestScene_HealthBar.unity
     guid: b4e37f732fdc74d448cd368f158b9c25
   - enabled: 1
-    path: Assets/Scenes/TestScene_EnemyAI.unity
+    path: Assets/Scenes/LevelScenes/OpenLevelScene.unity
+    guid: afcfc2d9bc242d54db7978d0e6d14760
+  - enabled: 1
+    path: Assets/Scenes/LevelScenes/Level1Scene.unity
     guid: 550dbeab7b335b343ac498fd0752467a
   - enabled: 1
     path: Assets/Scenes/TestScene_EndScene.unity

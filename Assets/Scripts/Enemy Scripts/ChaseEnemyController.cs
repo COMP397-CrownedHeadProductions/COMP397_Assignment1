@@ -23,8 +23,13 @@ public class ChaseEnemyController : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
     public float health = 100;
+    public float maxHealth;
+    public GameObject healthDrop;
+    public bool dropsHealth;
 
     public Animator animator;
+    public GameObject heartPickup;
+    public Transform heartSpawn;
 
     //Patrol Variables
     public Vector3 walkPoint;
@@ -45,6 +50,7 @@ public class ChaseEnemyController : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -72,12 +78,13 @@ public class ChaseEnemyController : MonoBehaviour
         }
 
         animator.SetFloat("Speed", navMeshAgent.speed);
+        EnemyDead();
     }
 
     //Moves to a set position after a certain distance
     private void Patrol()
     {
-        Debug.Log("Patrolling....");
+        //Debug.Log("Patrolling....");
         if (!walkPointSet) SearchWalkPoint();
         if (walkPointSet)
             navMeshAgent.SetDestination(walkPoint);
@@ -104,7 +111,7 @@ public class ChaseEnemyController : MonoBehaviour
     //Chase Player Function - When player is in a certain range
     private void Chase()
     {
-        Debug.Log("Chasing Player");
+        //Debug.Log("Chasing Player");
         navMeshAgent.SetDestination(player.position);
         navMeshAgent.speed = 4;
     }
@@ -112,7 +119,7 @@ public class ChaseEnemyController : MonoBehaviour
     //Attacks Player Function
     private void Attack()
     {
-        Debug.Log("Attacking Player");
+        //Debug.Log("Attacking Player");
         navMeshAgent.SetDestination(transform.position);
         transform.LookAt(player);
         if (!attackActive)
@@ -125,5 +132,22 @@ public class ChaseEnemyController : MonoBehaviour
     private void ResetAttack()
     {
         attackActive = false;
+    }
+
+    public void EnemyDead()
+    {
+        if (health <= 0)
+        {
+            HealthDrop();
+            Destroy(gameObject);
+        }
+    }
+    void HealthDrop()
+    {
+        if (dropsHealth)
+        {
+            heartPickup = Instantiate(healthDrop, heartSpawn.transform.position, transform.rotation);
+            heartPickup.transform.Rotate(-90.0f, 0.0f, 0.0f);
+        }
     }
 }

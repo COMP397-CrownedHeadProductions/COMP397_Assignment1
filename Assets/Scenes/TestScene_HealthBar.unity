@@ -130,49 +130,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1204705823903192079, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Height
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1204705823903192079, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1204705823903192079, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Center.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1204705823903192079, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Center.y
-      value: 1.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 1888969371754556076, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064050704871924759, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_DynamicOccludee
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4064050704871924759, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_SkinnedMotionVectors
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4095364978243840871, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4095364978243840871, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: fe67d1494799ca144b80768edfe0dcba, type: 2}
     - target: {fileID: 4145445216973744867, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4145445216973744867, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4147766913557678289, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: m_RootOrder
@@ -218,10 +178,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5681159745896192205, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: pause
       value: 
@@ -229,57 +185,12 @@ PrefabInstance:
     - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
       propertyPath: pivot
       value: 
-      objectReference: {fileID: 88376319}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 203596710}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: jumpHeight
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: groundCheck
-      value: 
-      objectReference: {fileID: 640107555}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: sprintSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: currentHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: movementSpeed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: animController
-      value: 
-      objectReference: {fileID: 203596710}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: groundMask.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-      propertyPath: controllerMoveSpeed
-      value: 1
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1888480193}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
 --- !u!4 &88376319 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4147766913557678289, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-  m_PrefabInstance: {fileID: 70368612}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &203596710 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 4095364978243840871, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
   m_PrefabInstance: {fileID: 70368612}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &367286203
@@ -399,11 +310,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79e8a6e6230c0548b3d9a07bb65c646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &640107555 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1888969371754556076, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
-  m_PrefabInstance: {fileID: 70368612}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1192892270
 PrefabInstance:
   m_ObjectHideFlags: 0
