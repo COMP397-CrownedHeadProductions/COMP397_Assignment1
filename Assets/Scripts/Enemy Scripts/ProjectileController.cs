@@ -26,6 +26,7 @@ public class ProjectileController : MonoBehaviour
     public int damageRange2;
 
     public PlayerController playerDamage;
+    public HealthBarController healthBar;
 
 
     // Start is called before the first frame update
@@ -34,6 +35,7 @@ public class ProjectileController : MonoBehaviour
         playerBody = GameObject.FindGameObjectWithTag("Player").transform;
         rb = GetComponent<Rigidbody>();
         playerDamage = GameObject.Find("Player").GetComponent<PlayerController>();
+        healthBar = GameObject.Find("Health_Bar").GetComponent <HealthBarController>();
         transform.LookAt(playerBody);
     }
 
@@ -63,7 +65,9 @@ public class ProjectileController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerController>().currentHealth -= damage;
+            //collision.gameObject.GetComponent<PlayerController>().currentHealth -= damage;
+            playerDamage.DamageHealth(damage);
+            healthBar.TakeDamage(damage);
             Destroy(gameObject);
             Debug.Log("Enemy dealt " + damage + " damage to Player");
         }

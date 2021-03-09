@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 /*
  * Source File: HeartDropController.cs
@@ -45,12 +46,16 @@ public class HeartDropController : MonoBehaviour {
     private float scaleTimer;
 
     public bool isSuperHealth;
-    public float superHealth;
+    public int superHealth;
 
-	// Use this for initialization
-	void Start () 
+    public HealthBarController healthBar;
+    public HealthBarController healthSlider;
+
+    // Use this for initialization
+    void Start () 
     {
-	}
+        healthBar = GameObject.Find("Health_Bar").GetComponent<HealthBarController>();
+    }
 	
 	// Update is called once per frame
 	void Update () 
@@ -112,6 +117,7 @@ public class HeartDropController : MonoBehaviour {
         {
             PlayerController health = other.gameObject.GetComponent<PlayerController>();
             health.currentHealth += healthAmount;
+            healthBar.TakeDamage(-healthAmount);
             Destroy(gameObject);
             if(health.currentHealth > health.maxHealth)
             {
@@ -123,6 +129,9 @@ public class HeartDropController : MonoBehaviour {
         {
             PlayerController health = other.gameObject.GetComponent<PlayerController>();
             health.maxHealth += superHealth;
+            healthBar.TakeDamage(-healthAmount);
+            healthBar.maximumHealth += superHealth;
+            healthBar.GetComponent<HealthBarController>().GetComponent<Slider>().value += superHealth; 
             Destroy(gameObject);
             Debug.Log("Maximum Health increased!");
         }

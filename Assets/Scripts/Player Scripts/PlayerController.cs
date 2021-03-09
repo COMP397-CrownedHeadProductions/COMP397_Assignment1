@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Health Properties")]
     public HealthBarController healthBar;
-    public float currentHealth;
-    public float maxHealth;
+    public int currentHealth;
+    public int maxHealth;
     //Helath Bar Functions
     public event Action<float> OnHealthPercentChanged = delegate { };
 
@@ -151,12 +151,8 @@ public class PlayerController : MonoBehaviour
         #region Temporary Health Bar Function
         if (Input.GetKeyDown(KeyCode.P))
         {
-            DamageHealth(-10);
-        }
-        if (currentHealth <= 0)
-        {
-            Destroy(gameObject);
-            Invoke("RestartScene", 5.0f);
+            DamageHealth(10);
+            healthBar.TakeDamage(10);
         }
         #endregion
 
@@ -192,9 +188,14 @@ public class PlayerController : MonoBehaviour
     }
     public void DamageHealth(int amt)
     {
-        currentHealth += amt;
-        float currenthealthPercent = (float)currentHealth / (float)maxHealth;
-        OnHealthPercentChanged(currenthealthPercent);
+        currentHealth -= amt;
+        //int currenthealthPercent = (int)currentHealth / (int)maxHealth;
+        //OnHealthPercentChanged(currenthealthPercent);
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
+            Invoke("RestartScene", 5.0f);
+        }
     }
 
     void RestartScene()

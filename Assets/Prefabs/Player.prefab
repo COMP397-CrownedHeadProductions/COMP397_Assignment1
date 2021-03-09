@@ -2326,6 +2326,7 @@ MonoBehaviour:
     m_Bits: 64
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 1
+  healthBar: {fileID: 0}
   currentHealth: 100
   maxHealth: 100
   swordSwing: {fileID: 8300000, guid: 13182107f288fdc47a11f9216c8f062b, type: 3}

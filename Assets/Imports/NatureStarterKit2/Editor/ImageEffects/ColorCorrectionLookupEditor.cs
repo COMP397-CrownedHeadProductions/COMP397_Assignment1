@@ -15,7 +15,7 @@ namespace UnityStandardAssets.ImageEffects
 
         private Texture2D tempClutTex2D;
 
-
+        [Obsolete]
         public override void OnInspectorGUI () {
             serObj.Update ();
 

@@ -376,5 +376,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 2946077877912896183, guid: 17679552aba7eab419765adce02ccbb5, type: 3}
+      propertyPath: audioMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: e677828428e99d543a1294430edf9372, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17679552aba7eab419765adce02ccbb5, type: 3}
