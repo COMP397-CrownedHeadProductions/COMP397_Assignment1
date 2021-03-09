@@ -11,6 +11,8 @@ TagManager:
   - PlayerSword
   - RangeEnemy
   - DeadZone
+  - Metal
+  - EnemySword
   layers:
   - Default
   - TransparentFX

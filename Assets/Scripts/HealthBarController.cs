@@ -27,7 +27,7 @@ public class HealthBarController : MonoBehaviour
     }
     private void HealthChangeHdlr(float percent)
     {
-        //fgImg.fillAmount = percent;
+        fgImg.fillAmount = percent;
         StartCoroutine(ChangeToPercent(percent));
     }
     //Smooth decrease for the health bar.

@@ -39,6 +39,9 @@ public class ChaseEnemyController : MonoBehaviour
     //Attack Variable
     public float attackDelay;
     bool attackActive;
+    public GameObject enemyProjectile;
+    public Transform shootPoint;
+    public float projectileSpeed;
 
     //State Variables
     public float sightRange, attackRange;
@@ -124,6 +127,8 @@ public class ChaseEnemyController : MonoBehaviour
         transform.LookAt(player);
         if (!attackActive)
         {
+            Rigidbody rb = Instantiate(enemyProjectile, shootPoint.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(transform.forward * projectileSpeed, ForceMode.Impulse);
             attackActive = true;
             Invoke(nameof(ResetAttack), attackDelay);
         }

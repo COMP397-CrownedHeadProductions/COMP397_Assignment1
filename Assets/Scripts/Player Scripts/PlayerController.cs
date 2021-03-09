@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     public bool isGrounded;
 
     [Header("Player Health Properties")]
+    public HealthBarController healthBar;
     public float currentHealth;
     public float maxHealth;
     //Helath Bar Functions
@@ -155,6 +156,7 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameObject);
+            Invoke("RestartScene", 5.0f);
         }
         #endregion
 
@@ -197,6 +199,6 @@ public class PlayerController : MonoBehaviour
 
     void RestartScene()
     {
-        SceneManager.LoadScene("TestScene_EnemyAI");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

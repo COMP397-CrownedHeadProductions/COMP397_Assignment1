@@ -44,6 +44,9 @@ public class HeartDropController : MonoBehaviour {
     public float scaleRate;
     private float scaleTimer;
 
+    public bool isSuperHealth;
+    public float superHealth;
+
 	// Use this for initialization
 	void Start () 
     {
@@ -115,6 +118,13 @@ public class HeartDropController : MonoBehaviour {
                 health.currentHealth = health.maxHealth;
             }
             Debug.Log("Player gained " + healthAmount + " health");
+        }
+        if(other.tag == "Player" && isSuperHealth == true)
+        {
+            PlayerController health = other.gameObject.GetComponent<PlayerController>();
+            health.maxHealth += superHealth;
+            Destroy(gameObject);
+            Debug.Log("Maximum Health increased!");
         }
     }
 }
