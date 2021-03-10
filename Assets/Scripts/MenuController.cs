@@ -12,7 +12,6 @@ public class MenuController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        ExitGame();
     }
 
     //Menu and end game scene functions.
