@@ -10,6 +10,11 @@ public class MenuController : MonoBehaviour
     /// THIS SCRIPT WILL BE HANDLING ALL FUNCTIONS USED BY THE MENU, END GAME SCENE, 
     /// OPTION AND PAUSE MENU.
     /// </summary>
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
     void Update()
     {
     }

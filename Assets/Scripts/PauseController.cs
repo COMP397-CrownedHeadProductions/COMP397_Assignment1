@@ -13,6 +13,11 @@ public class PauseController : MonoBehaviour
     /// 
     public bool isPaused=false;
     public GameObject PauseMenuUI;
+
+    void Start()
+    {
+        ResumeGame();
+    }
     // Update is called once per frame
     void Update()
     {
