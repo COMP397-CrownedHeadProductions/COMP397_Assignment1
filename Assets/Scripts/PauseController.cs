@@ -13,23 +13,30 @@ public class PauseController : MonoBehaviour
     /// 
     public bool isPaused=false;
     public GameObject PauseMenuUI;
+    public CameraController playerCamera;
+
 
     void Start()
     {
         ResumeGame();
+        playerCamera = FindObjectOfType<CameraController>();
     }
     // Update is called once per frame
     void Update()
     {
+        //Pause Menu Function
         if (Input.GetKeyDown(KeyCode.T))
         {
             if (isPaused)
             {
                 ResumeGame();
+                //Cursor.lockState = CursorLockMode.Locked;
+                playerCamera.enabled = true;
             }
             else
             {
                 PauseGame();
+                playerCamera.enabled = false;
             }
         }
         if (isPaused == true)
@@ -42,11 +49,13 @@ public class PauseController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ResumeGame();
+                playerCamera.enabled = true;
             }            
         }
     }
     public void ResumeGame()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         PauseMenuUI.SetActive(false);        
         Time.timeScale = 1f;
         isPaused = false;
@@ -62,5 +71,5 @@ public class PauseController : MonoBehaviour
     public void ToMenu()
     {
         SceneManager.LoadScene("MenuScene");
-    }    
+    }
 }
