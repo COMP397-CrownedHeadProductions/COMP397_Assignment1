@@ -50,6 +50,9 @@ public class PlayerController : MonoBehaviour
     //Helath Bar Functions
     public event Action<float> OnHealthPercentChanged = delegate { };
 
+    [Header("MiniMap")]
+    public GameObject miniMap;
+
     [Header("Player Audio Properties")]
     //Audio variables
     public AudioClip swordSwing;
@@ -184,6 +187,12 @@ public class PlayerController : MonoBehaviour
             {
                 SavingSys.SavePlayer(this);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            //toggle the Minimap on/off
+            miniMap.SetActive(!miniMap.activeInHierarchy);
         }
     }
     public void DamageHealth(int amt)
