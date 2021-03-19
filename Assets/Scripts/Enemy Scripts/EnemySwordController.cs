@@ -10,11 +10,13 @@ public class EnemySwordController : MonoBehaviour
     public int damageRange2;
 
     public PlayerController playerDamage;
+    public HealthBarController healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
         playerDamage = GameObject.Find("Player").GetComponent<PlayerController>();
+        healthBar = GameObject.Find("Health_Bar").GetComponent<HealthBarController>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -29,7 +31,8 @@ public class EnemySwordController : MonoBehaviour
         damage = Random.Range(damageRange1, damageRange2);
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerController>().currentHealth -= damage;
+            playerDamage.DamageHealth(damage);
+            healthBar.TakeDamage(damage);
             Debug.Log("Knight dealt " + damage + " to Player.");
         }
     }

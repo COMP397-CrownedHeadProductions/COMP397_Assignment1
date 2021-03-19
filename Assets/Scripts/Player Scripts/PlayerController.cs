@@ -17,6 +17,17 @@ using UnityEngine.SceneManagement;
  * - Basic player avatar movement and animations completed
  * - Basic enemy AI movement and animation completed
  * - Damage Player functionality implemented (Work in Progress)
+ * 
+ *                       Alpha - 2021-03-08
+ * - Damage player functionality and UI implemented
+ * - Tweaked jump animation
+ * - MiniMap toggle functionality implemented
+ * - Pause button functionality implemented
+ * 
+ *                        Beta - 2021-03-21
+ * - 
+ * -
+ * -
  */
 
 public class PlayerController : MonoBehaviour
@@ -27,7 +38,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerModel;
     public PauseController pause;
 
-    //Movement Variables
+    [Header("Player Movement Properties")]
     public float movementSpeed;
     public float sprintSpeed;
     public float controllerMoveSpeed = 10.0f;
@@ -49,6 +60,7 @@ public class PlayerController : MonoBehaviour
     public int maxHealth;
     //Helath Bar Functions
     public event Action<float> OnHealthPercentChanged = delegate { };
+    public GameObject countDownControl;
 
     [Header("MiniMap")]
     public GameObject miniMap;
@@ -194,19 +206,24 @@ public class PlayerController : MonoBehaviour
             //toggle the Minimap on/off
             miniMap.SetActive(!miniMap.activeInHierarchy);
         }
-    }
-    public void DamageHealth(int amt)
-    {
-        currentHealth -= amt;
-        //int currenthealthPercent = (int)currentHealth / (int)maxHealth;
-        //OnHealthPercentChanged(currenthealthPercent);
-        if (currentHealth <= 0)
+
+        if(currentHealth <= 0)
         {
-            Destroy(gameObject);
             Invoke("RestartScene", 5.0f);
         }
     }
 
+    public void DamageHealth(int amt)
+    {
+        currentHealth -= amt;
+        if (currentHealth <= 0)
+        {
+            countDownControl.SetActive(!countDownControl.activeInHierarchy);
+            Destroy(gameObject);
+            Invoke("RestartScene", 5.0f);
+        }
+    }
+    
     void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

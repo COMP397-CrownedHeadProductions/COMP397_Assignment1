@@ -130,3 +130,5 @@ MonoBehaviour:
   damageRange1: 10
   damageRange2: 13
   playerDamage: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+  healthBar: {fileID: 0}
+  countDownControl: {fileID: 0}

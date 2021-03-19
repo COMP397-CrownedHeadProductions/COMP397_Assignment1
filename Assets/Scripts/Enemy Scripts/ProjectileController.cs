@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /*
  * Source File: ProjectileController.cs
@@ -28,7 +30,6 @@ public class ProjectileController : MonoBehaviour
     public PlayerController playerDamage;
     public HealthBarController healthBar;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +43,6 @@ public class ProjectileController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
     }
 
     public void OnCollisionEnter(Collision collision)

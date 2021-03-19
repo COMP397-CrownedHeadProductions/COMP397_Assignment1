@@ -185,7 +185,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   damageRange1: 5
   damageRange2: 7
-  playerDamage: {fileID: 0}
+  playerDamage: {fileID: 7181169345998925964, guid: 99d9e43ebcbd3f74e893dbc33e97485f, type: 3}
+  healthBar: {fileID: 0}
 --- !u!1 &7618220928635241504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1161,7 @@ NavMeshAgent:
   m_Speed: 3
   m_Acceleration: 3
   avoidancePriority: 50
-  m_AngularSpeed: 360
+  m_AngularSpeed: 120
   m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1198,7 +1199,7 @@ MonoBehaviour:
   heartSpawn: {fileID: 1757778063}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 5
-  attackDelay: 5
+  attackDelay: 1.25
   enemyProjectile: {fileID: 7805264600317546327, guid: 8cae84bdfac5d17408284c935ab9ae02, type: 3}
   shootPoint: {fileID: 4263159318810976865}
   projectileSpeed: 5

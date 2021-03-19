@@ -13,6 +13,13 @@ using UnityEngine.UI;
  *                   Pre-Alpha - 2021.02.14
  * - Heart animation movement and rotation added
  * - Heart function to add health to player
+ * 
+ *                       Alpha - 2021-03-08
+ * - Max Health Increase functionality
+ * - Max Health game object created
+ * 
+ *                        Beta - 2021-03-21
+ * - 
  */
 
 public class HeartDropController : MonoBehaviour {

@@ -12,6 +12,12 @@ using UnityEngine;
  * --------------------Revision History--------------------
  *                   Pre-Alpha - 2021.02.14
  * - Basic camera movement for third-person character
+ * 
+ *                       Alpha - 2021-03-08
+ * - Updated camera rotation
+ * 
+ *                        Beta - 2021-03-21
+ * - 
  */
 
 public class CameraController : MonoBehaviour
