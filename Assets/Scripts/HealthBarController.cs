@@ -65,7 +65,11 @@ public class HealthBarController : MonoBehaviour
             currentHealth = 0;
         }
     }
-
+    public void SetHealth(int healthValue)
+    {
+        healthBarSlider.value = healthValue;
+        currentHealth = healthValue;
+    }
     public void Reset()
     {
         healthBarSlider.value = maximumHealth;
