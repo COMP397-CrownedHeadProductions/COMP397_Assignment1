@@ -13,13 +13,20 @@ public class PauseController : MonoBehaviour
     /// 
     public bool isPaused=false;
     public GameObject PauseMenuUI;
+    public List<MonoBehaviour> scripts;
+
+    [Header("Player")]
+    public PlayerController player;
     public CameraController playerCamera;
 
+    [Header("Scene")]
+    public SceneDataSO sceneData;
 
     void Start()
     {
         ResumeGame();
         playerCamera = FindObjectOfType<CameraController>();
+        player = FindObjectOfType<PlayerController>();
     }
     // Update is called once per frame
     void Update()
@@ -45,12 +52,19 @@ public class PauseController : MonoBehaviour
             {
                 ToMenu();
             }
-            else 
             if (Input.GetKeyDown(KeyCode.R))
             {
                 ResumeGame();
                 playerCamera.enabled = true;
-            }            
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                OnSaveButtonPressed();
+            }
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                OnLoadButtonPressed();
+            }
         }
     }
     public void ResumeGame()
@@ -59,6 +73,10 @@ public class PauseController : MonoBehaviour
         PauseMenuUI.SetActive(false);        
         Time.timeScale = 1f;
         isPaused = false;
+        foreach (var script in scripts)
+        {
+            script.enabled = isPaused;
+        }
         Debug.Log("Resume");
     }
     void PauseGame()
@@ -66,10 +84,27 @@ public class PauseController : MonoBehaviour
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
+        foreach (var script in scripts)
+        {
+            script.enabled = !isPaused;
+        }
         Debug.Log("Pause");
     }
     public void ToMenu()
     {
         SceneManager.LoadScene("MenuScene");
+    }
+    public void OnLoadButtonPressed()
+    {
+        player.controller.enabled = false;
+        player.transform.position = sceneData.playerPosition;
+        player.controller.enabled = true;
+        player.currentHealth = sceneData.playerHealth;
+        player.healthBar.SetHealth(sceneData.playerHealth);
+    }
+    public void OnSaveButtonPressed()
+    {
+        sceneData.playerPosition = player.transform.position;
+        sceneData.playerHealth = player.currentHealth;
     }
 }
