@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b552f69d6c3bf774f9d635dede96d447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fgImg: {fileID: 2768459213205261134}
-  updateSpd: 0.5
+  currentHealth: 0
+  maximumHealth: 0
 --- !u!1 &4096353056259628498
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,8 +291,8 @@ MonoBehaviour:
   attackDelay: 1
   enemyProjectile: {fileID: 3496651984529838256, guid: e422bd3c910e76d4e9b9751e23c1d611, type: 3}
   shootPoint: {fileID: 1781197524999056767}
-  sightRange: 18
-  attackRange: 12
+  sightRange: 23
+  attackRange: 16
   inSightRange: 0
   inAttackRange: 0
 --- !u!1 &4097237605026548500

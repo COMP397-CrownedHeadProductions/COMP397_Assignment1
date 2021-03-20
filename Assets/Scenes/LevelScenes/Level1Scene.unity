@@ -389,6 +389,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1269498328, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269498328, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 1269498329, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: countdownControl
+      value: 
+      objectReference: {fileID: 1328770105}
     - target: {fileID: 1118649092139730832, guid: b879c780438401a4c8b2416964a05dff, type: 3}
       propertyPath: pivot
       value: 
@@ -401,6 +413,22 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 367286203}
+    - target: {fileID: 1153367597239430540, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -19.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1480521311615042165, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: countdownControl
+      value: 
+      objectReference: {fileID: 1328770105}
+    - target: {fileID: 2795684549145562303, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2795684549145562303, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3719496535058812101, guid: b879c780438401a4c8b2416964a05dff, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -437,9 +465,37 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5868334251954102118, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868334251954102118, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868334251954102118, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25.41
+      objectReference: {fileID: 0}
     - target: {fileID: 5868334252362011098, guid: b879c780438401a4c8b2416964a05dff, type: 3}
       propertyPath: m_LocalScale.x
       value: 510
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868334252571368058, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 570
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868334252571368058, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868334252571368058, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5868334252571368058, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 45.12
       objectReference: {fileID: 0}
     - target: {fileID: 7245677944805537235, guid: b879c780438401a4c8b2416964a05dff, type: 3}
       propertyPath: m_Name
@@ -497,9 +553,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -9.89
       objectReference: {fileID: 0}
+    - target: {fileID: 8155369041506056093, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 550
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155369041506056093, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.06
+      objectReference: {fileID: 0}
     - target: {fileID: 8155369042245018240, guid: b879c780438401a4c8b2416964a05dff, type: 3}
       propertyPath: m_LocalScale.y
       value: 275
+      objectReference: {fileID: 0}
+    - target: {fileID: 8155369042780909765, guid: b879c780438401a4c8b2416964a05dff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 550
       objectReference: {fileID: 0}
     - target: {fileID: 8313509294919523617, guid: b879c780438401a4c8b2416964a05dff, type: 3}
       propertyPath: countdownControl

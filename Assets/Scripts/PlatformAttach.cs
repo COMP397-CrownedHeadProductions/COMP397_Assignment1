@@ -11,7 +11,7 @@ public class PlatformAttach : MonoBehaviour
     void Start()
     {
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if(other.gameObject == player)
         {

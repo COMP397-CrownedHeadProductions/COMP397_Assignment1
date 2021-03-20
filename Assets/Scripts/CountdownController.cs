@@ -47,6 +47,7 @@ public class CountdownController : MonoBehaviour
 
     void RestartScene()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(2);
     }
 }
