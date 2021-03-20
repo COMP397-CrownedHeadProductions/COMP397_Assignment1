@@ -1321,6 +1321,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPaused: 0
   PauseMenuUI: {fileID: 5798756303516950263}
+  scripts: []
+  player: {fileID: 0}
+  playerCamera: {fileID: 0}
+  sceneData: {fileID: 0}
 --- !u!1 &6854968162817906455
 GameObject:
   m_ObjectHideFlags: 0
