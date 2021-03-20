@@ -99,7 +99,9 @@ public class PauseController : MonoBehaviour
     {
         player.controller.enabled = false;
         player.transform.position = sceneData.playerPosition;
-        //playerCamera.transform.position = sceneData.cameraPosition;
+        player.transform.rotation = sceneData.playerRotation;
+        playerCamera.transform.position = sceneData.cameraPosition;
+        playerCamera.transform.rotation = sceneData.cameraRotation;
         player.controller.enabled = true;
         player.currentHealth = sceneData.playerHealth;
         player.healthBar.SetHealth(sceneData.playerHealth);
@@ -107,6 +109,8 @@ public class PauseController : MonoBehaviour
     public void OnSaveButtonPressed()
     {
         sceneData.playerPosition = player.transform.position;
+        sceneData.playerRotation = player.transform.rotation;
+        sceneData.cameraRotation = playerCamera.transform.rotation;
         sceneData.cameraPosition = playerCamera.transform.position;
         sceneData.playerHealth = player.currentHealth;
     }

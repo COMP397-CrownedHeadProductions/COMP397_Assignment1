@@ -10,7 +10,11 @@ public class SceneDataSO : ScriptableObject
     public Vector3 playerPosition;
     public Vector3 cameraPosition;
     public Vector3 pivotPosition;
+    public Quaternion playerRotation;
+    public Quaternion cameraRotation;
+    public int playerHealth;
+    
+    [Header("Enemy Data")]
     public Vector3 chaseEnemPos;
     public Vector3 rangeEnemPos;
-    public int playerHealth;
 }
