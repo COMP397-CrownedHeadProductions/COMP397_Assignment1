@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 717174007010734264}
   - component: {fileID: 1291492029716872557}
   - component: {fileID: 5573490267288081250}
+  - component: {fileID: 4419676970740072752}
   m_Layer: 6
   m_Name: FloatingPlatform
   m_TagString: Ground
@@ -127,3 +128,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0114758, y: 2.0099401, z: 0.2822421}
   m_Center: {x: 0.04604116, y: -0.5392783, z: 0.0071775233}
+--- !u!95 &4419676970740072752
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3086749066697423841}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba6f30a0dfea06e4ba1707f2a42e5301, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

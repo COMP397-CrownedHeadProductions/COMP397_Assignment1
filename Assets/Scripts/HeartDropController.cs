@@ -136,6 +136,7 @@ public class HeartDropController : MonoBehaviour {
         {
             PlayerController health = other.gameObject.GetComponent<PlayerController>();
             health.maxHealth += superHealth;
+            health.currentHealth = health.maxHealth;
             healthBar.TakeDamage(-healthAmount);
             healthBar.maximumHealth += superHealth;
             healthBar.GetComponent<HealthBarController>().GetComponent<Slider>().value += superHealth; 
