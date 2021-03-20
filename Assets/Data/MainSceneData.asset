@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15b18b65d717c27488c80823c59dce7d, type: 3}
   m_Name: MainSceneData
   m_EditorClassIdentifier: 
-  playerPosition: {x: 77.1929, y: -1.1039338, z: 56.37704}
-  cameraPosition: {x: 77.03479, y: 0.7984375, z: 48.077194}
+  playerPosition: {x: 0, y: 0, z: 0}
+  cameraPosition: {x: 0, y: 0, z: 0}
   pivotPosition: {x: 0, y: 0, z: 0}
-  playerRotation: {x: 0, y: 0.02078637, z: 0, w: -0.99978393}
-  cameraRotation: {x: 0.11239401, y: 0.009463323, z: -0.0010704525, w: 0.99361813}
-  playerHealth: 138
+  playerRotation: {x: 0, y: 0, z: 0, w: 0}
+  cameraRotation: {x: 0, y: 0, z: 0, w: 0}
+  playerHealth: 0
   chaseEnemPos: {x: 0, y: 0, z: 0}
   rangeEnemPos: {x: 0, y: 0, z: 0}
+  chaseEnemRot: {x: 0, y: 0, z: 0, w: 0}
+  rangeEnemRot: {x: 0, y: 0, z: 0, w: 0}
+  chaseEnemHealth: 0
+  rangeEnemHealth: 0

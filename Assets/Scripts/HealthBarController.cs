@@ -15,7 +15,7 @@ public class HealthBarController : MonoBehaviour
     public int currentHealth;
     [Range(1, 100)]
     public int maximumHealth;
-    private Slider healthBarSlider;
+    public Slider healthBarSlider;
     private PlayerController maxHealth;
     void Start()
     {

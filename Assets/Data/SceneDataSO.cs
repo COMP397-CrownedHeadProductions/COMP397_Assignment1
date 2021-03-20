@@ -17,4 +17,8 @@ public class SceneDataSO : ScriptableObject
     [Header("Enemy Data")]
     public Vector3 chaseEnemPos;
     public Vector3 rangeEnemPos;
+    public Quaternion chaseEnemRot;
+    public Quaternion rangeEnemRot;
+    public float chaseEnemHealth;
+    public float rangeEnemHealth;
 }

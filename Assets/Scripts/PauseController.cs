@@ -19,6 +19,10 @@ public class PauseController : MonoBehaviour
     public PlayerController player;
     public CameraController playerCamera;
 
+    [Header("Enemy")]
+    public RangeEnemyController rngEnem;
+    public RangeEnemyController rHealth;
+
     [Header("Scene")]
     public SceneDataSO sceneData;
 
@@ -102,9 +106,12 @@ public class PauseController : MonoBehaviour
         player.transform.rotation = sceneData.playerRotation;
         playerCamera.transform.position = sceneData.cameraPosition;
         playerCamera.transform.rotation = sceneData.cameraRotation;
-        player.controller.enabled = true;
         player.currentHealth = sceneData.playerHealth;
         player.healthBar.SetHealth(sceneData.playerHealth);
+        //Enemy
+        rngEnem.transform.position = sceneData.rangeEnemPos;
+        rngEnem.transform.rotation = sceneData.rangeEnemRot;
+        rngEnem.rHealth = sceneData.rangeEnemHealth;
     }
     public void OnSaveButtonPressed()
     {
@@ -113,5 +120,9 @@ public class PauseController : MonoBehaviour
         sceneData.cameraRotation = playerCamera.transform.rotation;
         sceneData.cameraPosition = playerCamera.transform.position;
         sceneData.playerHealth = player.currentHealth;
+
+        sceneData.rangeEnemPos = rngEnem.transform.position;
+        sceneData.rangeEnemRot = rngEnem.transform.rotation;
+        sceneData.rangeEnemHealth = rngEnem.rHealth;
     }
 }
