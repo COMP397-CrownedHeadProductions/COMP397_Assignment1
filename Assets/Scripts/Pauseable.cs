@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -14,6 +15,19 @@ public class Pauseable : MonoBehaviour
     void Start()
     {
         isGamePaused = false;
+        agents = FindObjectsOfType<NavMeshAgent>().ToList();
+
+        foreach (var enemy in FindObjectsOfType<ChaseEnemyController>())
+        {
+            scripts.Add(enemy);
+        }
+        foreach (var enemy in FindObjectsOfType<RangeEnemyController>())
+        {
+            scripts.Add(enemy);
+        }
+
+        scripts.Add(FindObjectOfType<PlayerController>());
+        scripts.Add(FindObjectOfType<CameraController>());
     }
 
     public void TogglePause()

@@ -81,6 +81,7 @@ public class PauseController : MonoBehaviour
     }
     void PauseGame()
     {
+        Cursor.lockState = CursorLockMode.Confined;
         PauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
@@ -98,6 +99,7 @@ public class PauseController : MonoBehaviour
     {
         player.controller.enabled = false;
         player.transform.position = sceneData.playerPosition;
+        //playerCamera.transform.position = sceneData.cameraPosition;
         player.controller.enabled = true;
         player.currentHealth = sceneData.playerHealth;
         player.healthBar.SetHealth(sceneData.playerHealth);
@@ -105,6 +107,7 @@ public class PauseController : MonoBehaviour
     public void OnSaveButtonPressed()
     {
         sceneData.playerPosition = player.transform.position;
+        sceneData.cameraPosition = playerCamera.transform.position;
         sceneData.playerHealth = player.currentHealth;
     }
 }
