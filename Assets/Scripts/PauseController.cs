@@ -3,6 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Source File: PauseController.cs
+ * Editors: Peitong Liu and Timothy Garcia
+ * Student Number: 300898955
+ * Date Modified: 03-21-2021
+ * Program: 3109 - Game-Programming(Optional Co-op)
+ * 
+ * --------------------Revision History--------------------
+ *                       Alpha - 2021-03-08
+ * - Pause menu UI implemented
+ * - Pause functionality implemented
+ * - Load and Save button UI added
+ * - Resume and Back to Menu button added and functional
+ * 
+ *                        Beta - 2021-03-21
+ * - Save and load player and enemy data implemented(WIP)
+ */
+
 public class PauseController : MonoBehaviour
 {
     /// <summary>
@@ -14,14 +32,17 @@ public class PauseController : MonoBehaviour
     public bool isPaused=false;
     public GameObject PauseMenuUI;
     public List<MonoBehaviour> scripts;
+    public List<MonoBehaviour> enemyScripts;
 
     [Header("Player")]
     public PlayerController player;
     public CameraController playerCamera;
 
     [Header("Enemy")]
-    public RangeEnemyController rngEnem;
-    public RangeEnemyController rHealth;
+    public ChaseEnemyController[] chaseEnem;
+    public ChaseEnemyController[] chaseHealth;
+    public RangeEnemyController[] rngEnem;
+    public RangeEnemyController[] rHealth;
 
     [Header("Scene")]
     public SceneDataSO sceneData;
@@ -31,6 +52,8 @@ public class PauseController : MonoBehaviour
         ResumeGame();
         playerCamera = FindObjectOfType<CameraController>();
         player = FindObjectOfType<PlayerController>();
+        chaseEnem = FindObjectsOfType<ChaseEnemyController>();
+        rngEnem = FindObjectsOfType<RangeEnemyController>();
     }
     // Update is called once per frame
     void Update()
@@ -73,7 +96,7 @@ public class PauseController : MonoBehaviour
     }
     public void ResumeGame()
     {
-        Cursor.lockState = CursorLockMode.None;
+        Cursor.lockState = CursorLockMode.Locked;
         PauseMenuUI.SetActive(false);        
         Time.timeScale = 1f;
         isPaused = false;
@@ -108,10 +131,23 @@ public class PauseController : MonoBehaviour
         playerCamera.transform.rotation = sceneData.cameraRotation;
         player.currentHealth = sceneData.playerHealth;
         player.healthBar.SetHealth(sceneData.playerHealth);
-        //Enemy
-        rngEnem.transform.position = sceneData.rangeEnemPos;
-        rngEnem.transform.rotation = sceneData.rangeEnemRot;
-        rngEnem.rHealth = sceneData.rangeEnemHealth;
+        player.controller.enabled = true;
+
+        //Load Chase Enemy Position, Rotation and Health
+        foreach (var chaseEnemy in chaseEnem)
+        {
+            sceneData.chaseEnemPos = chaseEnemy.transform.position;
+            sceneData.chaseEnemRot = chaseEnemy.transform.rotation;
+            sceneData.chaseEnemHealth = chaseEnemy.health;
+        }
+
+        //Load Range Enemy Position, Rotation and Health
+        foreach (var rangeEnemy in rngEnem)
+        {
+            rangeEnemy.transform.position = sceneData.rangeEnemPos;
+            rangeEnemy.transform.rotation = sceneData.rangeEnemRot;
+            rangeEnemy.rHealth = sceneData.rangeEnemHealth;
+        }
     }
     public void OnSaveButtonPressed()
     {
@@ -121,8 +157,20 @@ public class PauseController : MonoBehaviour
         sceneData.cameraPosition = playerCamera.transform.position;
         sceneData.playerHealth = player.currentHealth;
 
-        sceneData.rangeEnemPos = rngEnem.transform.position;
-        sceneData.rangeEnemRot = rngEnem.transform.rotation;
-        sceneData.rangeEnemHealth = rngEnem.rHealth;
+        //Save Chase Enemy Position, Rotation and Health
+        foreach (var chaseEnemy in chaseEnem)
+        {
+            sceneData.chaseEnemPos = chaseEnemy.transform.position;
+            sceneData.chaseEnemRot = chaseEnemy.transform.rotation;
+            sceneData.chaseEnemHealth = chaseEnemy.health;
+        }
+
+        //Save Range Enemy Position, Rotation and Health
+        foreach (var rangeEnemy in rngEnem)
+        {
+            sceneData.rangeEnemPos = rangeEnemy.transform.position;
+            sceneData.rangeEnemRot = rangeEnemy.transform.rotation;
+            sceneData.rangeEnemHealth = rangeEnemy.rHealth;
+        }
     }
 }
