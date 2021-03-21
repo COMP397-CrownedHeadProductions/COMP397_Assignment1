@@ -73,7 +73,7 @@ public class PauseController : MonoBehaviour
     }
     public void ResumeGame()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.None;
         PauseMenuUI.SetActive(false);        
         Time.timeScale = 1f;
         isPaused = false;
